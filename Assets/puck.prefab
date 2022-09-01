@@ -48,6 +48,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectPrefab: {fileID: 167520, guid: f3b6bcc909e8cd2498f7c7e6191e0e98, type: 3}
+  effects:
+  - {fileID: 145962, guid: a61618b17590c45429257dd0092ca327, type: 3}
+  - {fileID: 181074, guid: f59f6967a2c806540b4a69b74032fe1a, type: 3}
+  - {fileID: 1769391663779456, guid: d8dc9cc283ad7df45ae1b14f1fe58dbc, type: 3}
+  - {fileID: 173866, guid: 6692e3c69d930964f89b810020ae7d5c, type: 3}
+  - {fileID: 1221325706342982, guid: 3da5b72e78c819b4290273a86568da21, type: 3}
+  - {fileID: 167520, guid: f3b6bcc909e8cd2498f7c7e6191e0e98, type: 3}
+  - {fileID: 1369401709340560, guid: 9922a3006f27f504a8ad6992ba661791, type: 3}
+  - {fileID: 1837398281301428, guid: c6bff702ea33dbd43b35ea3d6db5f838, type: 3}
+  - {fileID: 1929620577409710, guid: eb550bb3d0f18944ba2272872ad6e2cd, type: 3}
+  - {fileID: 1881651295968406, guid: 82f6d33806a3c274c9ef17c9e2136478, type: 3}
+  - {fileID: 168890, guid: 2c936a8ea5b0042458c44a79a667c645, type: 3}
+  - {fileID: 132858, guid: dcbbdee2152660b41822b2eb0ccb8767, type: 3}
+  - {fileID: 109338, guid: c882138d4987a9544b7c53f14ed0ad9c, type: 3}
 --- !u!33 &6750141496725282951
 MeshFilter:
   m_ObjectHideFlags: 0

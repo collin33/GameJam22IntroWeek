@@ -6,12 +6,15 @@ public class PuckHitEffects : MonoBehaviour
 {
     [SerializeField]
     private GameObject effectPrefab;
+
+    public GameObject[] effects;
+
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.CompareTag("Floor") || collision.transform.childCount > 14)
+        if (collision.transform.CompareTag("Floor") || collision.transform.childCount > 6)
             return;
         GameObject e;
-        Destroy(e = Instantiate(effectPrefab, collision.collider.ClosestPoint(transform.position), Quaternion.identity), 5);
+        Destroy(e = Instantiate(effects[Random.Range(0, effects.Length)], collision.collider.ClosestPoint(transform.position), Quaternion.identity), 5);
         e.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
         e.transform.parent = collision.transform;
     }
