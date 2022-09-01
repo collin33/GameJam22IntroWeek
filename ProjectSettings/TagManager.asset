@@ -9,6 +9,7 @@ TagManager:
   - Synty Small Farm
   - Synty Tree
   - Floor
+  - Puck
   layers:
   - Default
   - TransparentFX

@@ -8,11 +8,12 @@ public class PuckHitEffects : MonoBehaviour
     private GameObject effectPrefab;
 
     public GameObject[] effects;
-
+    public bool effectsEnabled = true;
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.CompareTag("Floor") || collision.transform.childCount > 6)
+        if (!effectsEnabled || collision.transform.CompareTag("Floor") || collision.transform.childCount > 6)
             return;
+
         GameObject e;
         Destroy(e = Instantiate(effects[Random.Range(0, effects.Length)], collision.collider.ClosestPoint(transform.position), Quaternion.identity), 5);
         e.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
