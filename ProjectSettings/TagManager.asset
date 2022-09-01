@@ -8,6 +8,7 @@ TagManager:
   - Synty Medium Farm
   - Synty Small Farm
   - Synty Tree
+  - Floor
   layers:
   - Default
   - TransparentFX
