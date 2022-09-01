@@ -39,8 +39,8 @@ public class RandomRotation : MonoBehaviour
     void CreateNewRotation()
     {
         startpoint = transform.rotation;
-        randomXValue = Random.Range(-18, 25);
-        randomZValue = Random.Range(-12, 14);
+        randomXValue = Random.Range(-2, 2);
+        randomZValue = Random.Range(-7, 10);
         endpoint = Quaternion.Euler(randomXValue, startpoint.y, randomZValue);
         timeElapsed = 0;
         Debug.Log("Startpoint: " + startpoint + " endpoint: " + endpoint);
