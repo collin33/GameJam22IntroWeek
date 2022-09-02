@@ -3,7 +3,7 @@ using System;
 using System.Numerics;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
@@ -32,8 +32,8 @@ public class PuckPlacer : MonoBehaviour
     float CameraTimer = 0;
     bool cutscene = false;
 
-    [Header("Camera shit")]
-    public PuckSpawner spawner;
+    [Header("Camera shit")]
+    public PuckSpawner spawner;
     private void Start()
     {
         moveAction.Enable();
