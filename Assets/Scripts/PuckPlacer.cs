@@ -26,6 +26,8 @@ public class PuckPlacer : MonoBehaviour
     private float camRotation;
 
     public Transform _cam;
+    float CameraTimer = 0;
+    bool cutscene = false;
 
 
     private void Start()
@@ -43,16 +45,33 @@ public class PuckPlacer : MonoBehaviour
 
     private void Update()
     {
+        if (cutscene == true)
+        {
+            if (_isPlacing == false && CameraTimer > 0)
+            {
+                CameraTimer -= Time.deltaTime;
+                Debug.Log("AAAAAAAAAAAA");
+            }
+            else if (CameraTimer < 0)
+            {
+                if (PuckSpawn.remaining <= PuckSpawn.pucks)
+                {
+                    currentPuck = PuckSpawn.Spawn().GetComponent<Rigidbody>();
+                }
+                _isShooting = false;
+                _isPlacing = true;
+                cutscene = false;
+            }
+        }
 
-        if (_isPlacing && currentPuck)
+        if (_isPlacing && currentPuck && !cutscene)
         {
             //STATE A: GENERAL VIEW, ALLOW FOR PLACING
             //Debug.Log("State A");
             var moveDirection = moveAction.ReadValue<Vector2>() * (moveSpeed * Time.deltaTime);
             currentPuck.velocity = new Vector3(-moveDirection.y, currentPuck.velocity.y, moveDirection.x);
-
         }
-        else if (_isShooting && currentPuck)
+        else if (_isShooting && currentPuck && !cutscene)
         {
             // STATE B: CAMERA ADJUSTED, ALLOW FOR AIMING
             //Debug.Log("State B");
@@ -65,21 +84,25 @@ public class PuckPlacer : MonoBehaviour
             _cam.position = position;
 
             camRotation += moveAction.ReadValue<Vector2>().x * (moveSpeed * Time.deltaTime);
-            currentPuck.rotation = UnityEngine.Quaternion.Euler(0, camRotation - 90, 0);
+            currentPuck.rotation = UnityEngine.Quaternion.Euler(currentPuck.rotation.x, camRotation - 90, currentPuck.rotation.z);
 
             _cam.rotation = UnityEngine.Quaternion.Euler(0, camRotation, 0);
 
             if (enterAction.triggered)
             {
                 currentPuck.AddForce(currentPuck.transform.forward * (21 * moveSpeed));
+                _cam.position = _cameraStartPosition;
+                _cam.transform.rotation = UnityEngine.Quaternion.Euler(_cameraLookAt);
+                cutscene = true;
+                CameraTimer = 5;
+                /*
                 if (PuckSpawn.remaining <= PuckSpawn.pucks)
                 {
                     currentPuck = PuckSpawn.Spawn().GetComponent<Rigidbody>();
                 }
                 _isShooting = false;
-                _isPlacing = true;
+                _isPlacing = true;*/
             }
-
         }
         else
         {
@@ -88,7 +111,7 @@ public class PuckPlacer : MonoBehaviour
             Debug.Log(currentPuck);
         }
 
-        if (enterAction.triggered && _isPlacing && !_isShooting)
+        if (enterAction.triggered && _isPlacing && !_isShooting && !cutscene)
         {
             //STATE UPDATER, CHANGE FROM STATE A TO B
             _isPlacing = false;
@@ -98,7 +121,7 @@ public class PuckPlacer : MonoBehaviour
             camRotation = 0;
         }
 
-        if (backAction.triggered && _isShooting && !_isPlacing)
+        if (backAction.triggered && _isShooting && !_isPlacing && !cutscene)
         {
             //STATE UPDATER, REVERT FROM STATE B TO A
             _isPlacing = true;
@@ -106,6 +129,5 @@ public class PuckPlacer : MonoBehaviour
             camRotation = 0;
             _cam.position = _cameraStartPosition;
         }
-
     }
 }
