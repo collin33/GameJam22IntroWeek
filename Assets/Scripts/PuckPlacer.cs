@@ -3,6 +3,7 @@ using System;
 using System.Numerics;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
@@ -32,8 +33,7 @@ public class PuckPlacer : MonoBehaviour
     bool cutscene = false;
 
     [Header("Camera shit")]
-    public CamController cameras;
-
+    public PuckSpawner spawner;
     private void Start()
     {
         moveAction.Enable();
@@ -60,8 +60,9 @@ public class PuckPlacer : MonoBehaviour
             {
                 if (PuckSpawn.remaining <= PuckSpawn.pucks)
                 {
+                    if (spawner.remaining <= 0)
+                        SceneManager.LoadScene("MENU");
                     currentPuck = PuckSpawn.Spawn().GetComponent<Rigidbody>();
-                    cameras.SetFar();
                 }
                 _isShooting = false;
                 _isPlacing = true;

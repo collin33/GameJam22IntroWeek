@@ -2803,7 +2803,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1236605120
 Transform:
   m_ObjectHideFlags: 0
@@ -3190,7 +3190,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1535679136}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 8.484825, y: 0.48872566, z: 4.1266685}
@@ -4432,6 +4432,11 @@ PrefabInstance:
       propertyPath: _cam
       value: 
       objectReference: {fileID: 225111460}
+    - target: {fileID: 6236172998411589448, guid: a0e09ec84c7886f47b98bd66cf3bfbf9,
+        type: 3}
+      propertyPath: spawner
+      value: 
+      objectReference: {fileID: 1251068295}
     - target: {fileID: 6236172998411589448, guid: a0e09ec84c7886f47b98bd66cf3bfbf9,
         type: 3}
       propertyPath: PuckSpawn

@@ -27,12 +27,12 @@ public class PuckSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (remaining == 0)
-        {
-            int i = puckCounter.CountAndDestroy();
-            remaining = i;
-            return;
-        }
+        //if (remaining == 0)
+        //{
+        //    int i = puckCounter.CountAndDestroy();
+        //    remaining = i;
+        //    return;
+        //}
     }
 
     public GameObject Spawn()
