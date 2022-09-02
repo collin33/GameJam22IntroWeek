@@ -9,6 +9,7 @@ using Vector3 = UnityEngine.Vector3;
 
 public class PuckPlacer : MonoBehaviour
 {
+    public PuckSpawner PuckSpawn;
     public InputAction moveAction;
     public InputAction enterAction;
     public InputAction backAction;
@@ -32,6 +33,9 @@ public class PuckPlacer : MonoBehaviour
         moveAction.Enable();
         enterAction.Enable();
         backAction.Enable();
+
+        //PuckSpawn.Spawn();
+        currentPuck = PuckSpawn.Spawn().GetComponent<Rigidbody>();
 
         _cam.position = _cameraStartPosition;
         _cam.transform.rotation = UnityEngine.Quaternion.Euler(_cameraLookAt);
@@ -68,7 +72,10 @@ public class PuckPlacer : MonoBehaviour
             if (enterAction.triggered)
             {
                 currentPuck.AddForce(currentPuck.transform.forward * (21 * moveSpeed));
-                currentPuck = null;
+                if (PuckSpawn.remaining <= PuckSpawn.pucks)
+                {
+                    currentPuck = PuckSpawn.Spawn().GetComponent<Rigidbody>();
+                }
                 _isShooting = false;
                 _isPlacing = true;
             }
