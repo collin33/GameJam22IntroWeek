@@ -14,6 +14,8 @@ public class PuckPlacer : MonoBehaviour
     public InputAction enterAction;
     public InputAction backAction;
 
+    
+
     public Rigidbody currentPuck;
     [SerializeField] private float moveSpeed = 50;
 
@@ -29,6 +31,8 @@ public class PuckPlacer : MonoBehaviour
     float CameraTimer = 0;
     bool cutscene = false;
 
+    [Header("Camera shit")]
+    public CamController cameras;
 
     private void Start()
     {
@@ -57,6 +61,7 @@ public class PuckPlacer : MonoBehaviour
                 if (PuckSpawn.remaining <= PuckSpawn.pucks)
                 {
                     currentPuck = PuckSpawn.Spawn().GetComponent<Rigidbody>();
+                    cameras.SetFar();
                 }
                 _isShooting = false;
                 _isPlacing = true;

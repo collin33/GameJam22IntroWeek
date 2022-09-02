@@ -24,7 +24,9 @@ public class PuckHitEffects : MonoBehaviour
     }
     private void Update()
     {
-        
+        foreach (var e in spawnedEffects)
+            if (Time.time > e.Value)
+                Destroy(e.Key);
     }
     private void OnDisable()
     {
