@@ -304,7 +304,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &176250493
 GameObject:
@@ -522,7 +522,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 178.169, y: -90, z: -90}
 --- !u!1 &509192661
 GameObject:
@@ -614,7 +614,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 178.169, y: -90, z: -90}
 --- !u!1 &650278678
 GameObject:
@@ -892,7 +892,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 178.169, y: -90, z: -90}
 --- !u!1 &819234679
 GameObject:
@@ -1170,7 +1170,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 178.169, y: -90, z: -90}
 --- !u!1 &1275905863
 GameObject:
@@ -1584,7 +1584,7 @@ RectTransform:
   - {fileID: 176250497}
   - {fileID: 286118645}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -1.368, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2072,7 +2072,7 @@ PrefabInstance:
     - target: {fileID: 2202528504611035722, guid: ae82eb077552d4b41b93e579f096a386,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2202528504611035722, guid: ae82eb077552d4b41b93e579f096a386,
         type: 3}
@@ -2168,7 +2168,7 @@ PrefabInstance:
     - target: {fileID: 8992002775816157305, guid: 7ab7b96cc937a41419ccd036bcce82d0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8992002775816157305, guid: 7ab7b96cc937a41419ccd036bcce82d0,
         type: 3}

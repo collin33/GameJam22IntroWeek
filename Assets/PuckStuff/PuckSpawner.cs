@@ -42,7 +42,8 @@ public class PuckSpawner : MonoBehaviour
             return null;
         time = Time.time + Time.deltaTime * 40;
         if (secondToLastSpawned != null)
-        { secondToLastSpawned.GetComponent<PuckHitEffects>().effectsEnabled = false; }
+            secondToLastSpawned.GetComponent<PuckHitEffects>().effectsEnabled = false;
+
         secondToLastSpawned = lastSpawned;
         var e = Instantiate(puckPrefab, transform.position, Quaternion.identity);
         lastSpawned = e;

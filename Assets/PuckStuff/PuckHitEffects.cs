@@ -8,6 +8,8 @@ public class PuckHitEffects : MonoBehaviour
     private GameObject effectPrefab;
 
     public GameObject[] effects;
+
+    private Dictionary<GameObject, float> spawnedEffects = new Dictionary<GameObject, float>();
     public bool effectsEnabled = true;
     private void OnCollisionEnter(Collision collision)
     {
@@ -15,9 +17,20 @@ public class PuckHitEffects : MonoBehaviour
             return;
 
         GameObject e;
-        Destroy(e = Instantiate(effects[Random.Range(0, effects.Length)], collision.collider.ClosestPoint(transform.position), Quaternion.identity), 5);
+        e = Instantiate(effects[Random.Range(0, effects.Length)], collision.collider.ClosestPoint(transform.position), Quaternion.identity);
+        spawnedEffects.Add(e, Time.time + Time.deltaTime * 100);
         e.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
         e.transform.parent = collision.transform;
+    }
+    private void Update()
+    {
+        
+    }
+    private void OnDisable()
+    {
+        foreach (var k in spawnedEffects.Keys)
+            Destroy(k);
+        spawnedEffects.Clear();
     }
 }
 /*
